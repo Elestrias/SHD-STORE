@@ -7,7 +7,7 @@ user = 'Unknown'
 @app.route('/registration', methods=['POST', 'GET'])
 def form_sample():
     if request.method == 'GET':
-        return render_template('auntification.html')
+        return render_template('registration.html')
     elif request.method == 'POST':
             print(request.form['email'])
             print(request.form['password'])
