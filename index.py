@@ -1,7 +1,6 @@
 from flask import Flask, url_for, request, render_template
 
 app = Flask(__name__)
-user = 'Unknown'
 
 
 @app.route('/registration', methods=['POST', 'GET'])
@@ -34,14 +33,6 @@ def main_page():
 def main():
     if request.method == 'GET':
         return render_template('main_page.html')
-    elif request.method == 'POST':
-            print(request.form['email'])
-            print(request.form['password'])
-            print(request.form['file'])
-            print(request.form['about'])
-            print(request.form['accept'])
-            print(request.form['sex'])
-            return "Форма отправлена"
 
 
 if __name__ == '__main__':

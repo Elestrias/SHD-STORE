@@ -20,7 +20,12 @@
 
                                 <div class="form-group">
                                     <label for="about">Платежная информация</label>
-                                    <textarea class="form-control" id="about" rows="3" name="about"></textarea>
+                                   <div class="col-md-6 mb-3">
+                                    <label for="cc-number">Credit card number</label>
+                                        <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                                   </div>
+                                        <div class="invalid-feedback">
+                                        Credit card number is required</div>
                                 </div>
                                 <div class="form-group">
                                     <label for="photo">Приложите фотографию</label>
@@ -45,7 +50,7 @@
                                     <input type="checkbox" class="form-check-input" id="acceptRules" name="accept">
                                     <label class="form-check-label" for="acceptRules">согласен с условиями пользования</label>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Записаться</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                           </body>
                         </html>
