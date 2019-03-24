@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Home</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/" id="logo">Egor&Ruslan Co</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control ml-md-2" type="search" size="85" placeholder="Поиск..." aria-label="Search">
+            <button class="btn btn-success my-sm-0" type="submit"><img src="img/magnifier.svg" width="20" height="20" alt="magnifier"> </button>
+        </form>
+        <form class="form-inline offset-sm-2">
+            <a href="/register.html" class="btn btn-success mr-md-1">Регистрация</a>
+            <a href="/login.html" class="btn btn-outline-success">Войти</a>
+        </form>
+    </div>
+</nav>
+<ul class="cat">
+    <li><a href="#">Женщинам</a></li>
+    <li><a href="#">Мужчинам</a></li>
+    <li><a href="#">Детям</a></li>
+    <li><a href="#">Обувь</a></li>
+    <li><a href="#">Книги и канцтовары</a></li>
+    <li><a href="#">Спорт</a></li>
+    <li><a href="#">Игрушки</a></li>
+    <li><a href="#">Новинки</a></li>
+    <li><a href="#">Акции</a></li>
+</ul>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="centered">Регистрация</h1>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Пароль</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ваш пароль">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Подтвердите пароль</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Повторите ваш пароль">
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Я согласен с условиями</label>
+                </div>
+                <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+</div>
+<footer class="centered" id="footer">
+    <table width="96%" class="centered">
+        <tr>
+            <td><u>Сервис и поддержка</u></td>
+            <td><u>О компании</u></td>
+            <td width="70%" rowspan="5" style="text-align: right;" valign="bottom">
+                <a class="navbar-brand" href="/" style="color: #14801a; font-size: 200%;">Egor&Ruslan Co</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="#">Как сделать заказ</a></td>
+            <td><a href="#">О нас</a></td>
+        </tr>
+        <tr>
+            <td><a href="#">Возврат товара</a></td>
+            <td><a href="#">Контакты</a></td>
+        </tr>
+        <tr>
+            <td><a href="#">Доставка</a></td>
+            <td><a href="#">Скидки</a></td>
+        </tr>
+    </table>
+    2019 &copy; Все права защищены
+</footer>
+</body>
+</html>
