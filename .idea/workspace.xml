@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd521ab8-abd8-4f6a-ab7d-e4fb02b795d8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/basket.html" beforeDir="false" afterPath="$PROJECT_DIR$/basket.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/checkout.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,17 +20,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="107" column="22" lean-forward="true" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
+            <state relative-caret-position="1605">
+              <caret line="107" column="22" lean-forward="true" selection-end-line="177" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/checkout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="63" column="13" lean-forward="true" selection-end-line="77" />
+              <folding>
+                <element signature="e#8319#8325#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/basket.html">
+        <entry file="file://$PROJECT_DIR$/product.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="96" column="57" lean-forward="true" selection-start-line="96" selection-start-column="57" selection-end-line="96" selection-end-column="57" />
+            <state relative-caret-position="592">
+              <caret line="75" column="39" selection-start-line="75" selection-start-column="39" selection-end-line="75" selection-end-column="39" />
+              <folding>
+                <element signature="e#3485#3491#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -36,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="284" column="32" lean-forward="true" selection-start-line="284" selection-start-column="32" selection-end-line="284" selection-end-column="62" />
+            <state relative-caret-position="248">
+              <caret line="288" column="24" selection-start-line="288" selection-start-column="24" selection-end-line="288" selection-end-column="113" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -132,6 +149,8 @@
         <option value="$PROJECT_DIR$/lk-msg.html" />
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/basket.html" />
+        <option value="$PROJECT_DIR$/checkout.html" />
+        <option value="$PROJECT_DIR$/product.html" />
       </list>
     </option>
   </component>
@@ -208,12 +227,12 @@
       <updated>1553325197651</updated>
       <workItem from="1553325200919" duration="13344000" />
       <workItem from="1553406761049" duration="613000" />
-      <workItem from="1553437679284" duration="4810000" />
+      <workItem from="1553437679284" duration="5972000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18767000" />
+    <option name="totallyTimeSpent" value="19929000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -293,13 +312,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/bell.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -327,13 +339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="107" column="22" lean-forward="true" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lk-msg.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -348,10 +353,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/basket.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="97" column="73" selection-start-line="97" selection-start-column="73" selection-end-line="97" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1605">
+          <caret line="107" column="22" lean-forward="true" selection-end-line="177" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="63" column="13" lean-forward="true" selection-end-line="77" />
+          <folding>
+            <element signature="e#8319#8325#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="284" column="32" lean-forward="true" selection-start-line="284" selection-start-column="32" selection-end-line="284" selection-end-column="62" />
+        <state relative-caret-position="248">
+          <caret line="288" column="24" selection-start-line="288" selection-start-column="24" selection-end-line="288" selection-end-column="113" />
           <folding>
             <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -389,10 +425,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/basket.html">
+    <entry file="file://$PROJECT_DIR$/product.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="96" column="57" lean-forward="true" selection-start-line="96" selection-start-column="57" selection-end-line="96" selection-end-column="57" />
+        <state relative-caret-position="592">
+          <caret line="75" column="39" selection-start-line="75" selection-start-column="39" selection-end-line="75" selection-end-column="39" />
+          <folding>
+            <element signature="e#3485#3491#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
