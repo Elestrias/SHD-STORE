@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Home</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/" id="logo">Egor&Ruslan Co</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control ml-md-2" type="search" size="85" placeholder="Поиск..." aria-label="Search">
+            <button class="btn btn-success my-sm-0" type="submit"><img src="img/magnifier.svg" width="20" height="20" alt="magnifier"> </button>
+        </form>
+        <form class="form-inline offset-sm-1">
+            <a href="#"><img src="img/basket.svg" width="20" height="20" alt=""></a>
+            <a href="#" class="ml-md-2"><img src="img/bell.svg" width="20" height="20" alt=""></a>
+            <span class="badge badge-light">3</span>
+            <a href="/lk.html" class="btn btn-link mr-md-1">Личный кабинет</a>
+            <a href="/logout.html" class="btn btn-outline-success">Выйти</a>
+        </form>
+    </div>
+</nav>
+<ul class="cat">
+    <li><a href="#">Женщинам</a></li>
+    <li><a href="#">Мужчинам</a></li>
+    <li><a href="#">Детям</a></li>
+    <li><a href="#">Обувь</a></li>
+    <li><a href="#">Книги и канцтовары</a></li>
+    <li><a href="#">Спорт</a></li>
+    <li><a href="#">Игрушки</a></li>
+    <li><a href="#">Новинки</a></li>
+    <li><a href="#">Акции</a></li>
+</ul>
+<br>
+<br>
+<div class="container-fluid" id="content">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <span class="list-group-item"><b>Личный кабинет</b></span>
+                <a href="#" class="list-group-item list-group-item-action">
+                    Мои заказы
+                </a>
+                <a href="#" class="list-group-item list-group-item-action active">Сообщения     <span class="badge badge-light">3</span></a>
+                <a href="#" class="list-group-item list-group-item-action">Бонусы</a>
+                <a href="#" class="list-group-item list-group-item-action">Сменить пароль</a>
+                <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Панель менеджера</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Дата сообщения</th>
+                    <th scope="col">Тип</th>
+                    <th scope="col">Сообщение</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">128</th>
+                    <td>28-03-2018</td>
+                    <td class="blue">Оповещение</td>
+                    <td>Ваш заказ №24642 успешно отправлен. Вы можете отслеживать его на нашем сайте в разделе "Мои заказы"</td>
+                </tr>
+                <tr>
+                    <th scope="row">129</th>
+                    <td>28-03-2018</td>
+                    <td class="green">Подтверждение</td>
+                    <td>Ваш заказ №24642 успешно оплачен. Мы отправим его в ближайшее время</td>
+                </tr>
+                <tr>
+                    <th scope="row">131</th>
+                    <td>28-03-2018</td>
+                    <td class="red">Ошибка</td>
+                    <td>Мы не можем отправить ваш заказ, пока вы его не оплатите</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<footer class="centered" id="footer">
+    <table width="96%" class="centered">
+        <tr>
+            <td><u>Сервис и поддержка</u></td>
+            <td><u>О компании</u></td>
+            <td width="70%" rowspan="5" style="text-align: right;" valign="bottom">
+                <a class="navbar-brand" href="/" style="color: #14801a; font-size: 200%;">Egor&Ruslan Co</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="#">Как сделать заказ</a></td>
+            <td><a href="#">О нас</a></td>
+        </tr>
+        <tr>
+            <td><a href="#">Возврат товара</a></td>
+            <td><a href="#">Контакты</a></td>
+        </tr>
+        <tr>
+            <td><a href="#">Доставка</a></td>
+            <td><a href="#">Скидки</a></td>
+        </tr>
+    </table>
+    2019 &copy; Все права защищены
+</footer>
+</body>
+</html>

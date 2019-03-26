@@ -22,6 +22,26 @@ html {
     text-align: right;
 }
 
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.blue {
+    color: blue;
+}
+
+.no-margin {
+    margin: 0;
+}
+
 #content {
     margin: 0 auto;
     padding-bottom: 150px;
