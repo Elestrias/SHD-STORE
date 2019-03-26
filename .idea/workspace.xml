@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd521ab8-abd8-4f6a-ab7d-e4fb02b795d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/basket.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/basket.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/bell.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lk-msg.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lk-pass.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lk.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basket.html" beforeDir="false" afterPath="$PROJECT_DIR$/basket.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/basket.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="678">
-              <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
+            <state relative-caret-position="240">
+              <caret line="96" column="57" lean-forward="true" selection-start-line="96" selection-start-column="57" selection-end-line="96" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -215,12 +208,12 @@
       <updated>1553325197651</updated>
       <workItem from="1553325200919" duration="13344000" />
       <workItem from="1553406761049" duration="613000" />
-      <workItem from="1553437679284" duration="4510000" />
+      <workItem from="1553437679284" duration="4810000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18467000" />
+    <option name="totallyTimeSpent" value="18767000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -398,8 +391,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/basket.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
+        <state relative-caret-position="240">
+          <caret line="96" column="57" lean-forward="true" selection-start-line="96" selection-start-column="57" selection-end-line="96" selection-end-column="57" />
         </state>
       </provider>
     </entry>
