@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan');
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+#logo {
+    color: #14801a;
+    font-size: 200%;
+}
+
+.centered {
+    text-align: center;
+}
+
+.lefted {
+    text-align: left;
+}
+
+.righted {
+    text-align: right;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.blue {
+    color: blue;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+#content {
+    margin: 0 auto;
+    padding-bottom: 150px;
+}
+
+#footer {
+    background-color: #676767;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    color: white;
+}
+
+#footer a {
+    color: white;
+}
+
+.big-btn {
+    width: 100px;
+}
+
+.large-btn {
+    width: 300px;
+}
+
+ul.cat li>a.cat-active, ul.cat li>a:hover {
+    color: #f9c535;
+    background-color: white;
+}
+
+ul.cat {
+    margin: 0;
+    padding: 4px;
+    background-color: #f9c535;
+}
+
+ul.cat li {
+    display: inline;
+    margin-right: 25px;
+    padding: 3px;
+}
+
+ul.cat a {
+    color: white;
+    text-decoration: none;
+}
+
+.cat-active a {
+    color: #f9c535;
+}
+
+.sort {
+    display: inline-block;
+}
+
+.price {
+    color: #dc3545;
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+table.product-bar {
+    width:  100%;
+    border-spacing: 0;
+    text-align: left;
+}
+
+table.product-bar td {
+    width: 50%;
+    vertical-align: top;
+}
+
+td.rightcol {
+    text-align: right;
+}

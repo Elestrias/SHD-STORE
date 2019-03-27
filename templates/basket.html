@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Store - Корзина
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <div class="container-fluid" id="content">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2>Корзина</h2>
+                <table class="table centered">
+                    <thead>
+                    <tr>
+                        <th scope="col">№ товара</th>
+                        <th scope="col">Название</th>
+                        <th scope="col">Количество</th>
+                        <th scope="col">Цена</th>
+                        <th scope="col">Доставка</th>
+                        <th scope="col">Итог</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">683468</th>
+                        <td><a href="#">Тапочки домашние</a></td>
+                        <td>2</td>
+                        <td>
+                            <p class="no-margin">1000 р.</p>
+                            <p class="no-margin"><s>2000 р.</s> <span class="badge badge-danger">-50%</span></p>
+                        </td>
+                        <td class="green">Бесплатно</td>
+                        <td>2000 р.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">683468</th>
+                        <td><a href="#">Тапочки домашние</a></td>
+                        <td>2</td>
+                        <td>
+                            <p class="no-margin">1000 р.</p>
+                            <p class="no-margin"><s>2000 р.</s> <span class="badge badge-danger">-50%</span></p>
+                        </td>
+                        <td class="green">Бесплатно</td>
+                        <td>2000 р.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">683468</th>
+                        <td><a href="#">Тапочки домашние</a></td>
+                        <td>2</td>
+                        <td>
+                            <p class="no-margin">1000 р.</p>
+                            <p class="no-margin"><s>2000 р.</s> <span class="badge badge-danger">-50%</span></p>
+                        </td>
+                        <td class="green">Бесплатно</td>
+                        <td>2000 р.</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="righted">
+                    <h3>Итого: 3000 р.</h3>
+                    <a href="#" class="btn btn-warning btn-lg">Оформить заказ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

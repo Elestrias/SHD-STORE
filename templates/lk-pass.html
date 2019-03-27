@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Store - Изменить пароль
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <div class="container-fluid" id="content">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <span class="list-group-item"><b>Личный кабинет</b></span>
+                    <a href="{{ url_for('lk_orders') }}" class="list-group-item list-group-item-action">
+                        Мои заказы
+                    </a>
+                    <a href="{{ url_for('lk_msg') }}" class="list-group-item list-group-item-action">Сообщения     <span class="badge badge-light">3</span></a>
+                    <a href="#" class="list-group-item list-group-item-action">Бонусы</a>
+                    <a href="{{ url_for('lk_pass') }}" class="list-group-item list-group-item-action active">Сменить пароль</a>
+                    <a href="{{ url_for('manager_panel') }}" class="list-group-item list-group-item-action">Панель менеджера</a>
+                </div>
+            </div>
+            <div class="col-md-5 offset-md-2 centered">
+                <br>
+                <h2>Восстановление пароля</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="old-pass">Старый пароль</label>
+                        <input type="password" class="form-control" id="old-pass" aria-describedby="emailHelp" placeholder="Введите старый пароль">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-pass">Придумайте новый пароль</label>
+                        <input type="password" class="form-control" id="new-pass" placeholder="Новый пароль">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-rpass">Подтвердите новый пароль</label>
+                        <input type="password" class="form-control" id="new-rpass" placeholder="Повторите новый пароль">
+                    </div>
+                    <button type="submit" class="btn btn-success">Изменить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

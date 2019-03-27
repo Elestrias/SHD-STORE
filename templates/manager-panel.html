@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Store - Панель менеджера
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <div class="container-fluid" id="content">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <span class="list-group-item"><b>Личный кабинет</b></span>
+                    <a href="{{ url_for('lk_orders') }}" class="list-group-item list-group-item-action">
+                        Мои заказы
+                    </a>
+                    <a href="{{ url_for('lk_msg') }}" class="list-group-item list-group-item-action">Сообщения     <span class="badge badge-light">3</span></a>
+                    <a href="#" class="list-group-item list-group-item-action">Бонусы</a>
+                    <a href="{{ url_for('lk_pass') }}" class="list-group-item list-group-item-action">Сменить пароль</a>
+                    <a href="{{ url_for('manager_panel') }}" class="list-group-item list-group-item-action active">Панель менеджера</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h3>Все заказы</h3>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">№ заказа</th>
+                        <th scope="col">Товары</th>
+                        <th scope="col">Цена</th>
+                        <th scope="col">Статус</th>
+                        <th scope="col">Заказчик</th>
+                        <th scope="col">Действия</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Тапочки домашние, кофта...</td>
+                        <td>1100р.</td>
+                        <td><span class="green">Доставлено</span></td>
+                        <td><a href="#">ShopUser</a></td>
+                        <td>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Изменить статус"><img src="{{ url_for('static', filename='img/change.svg') }}" width="16" height="16" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Подробнее"><img src="{{ url_for('static', filename='img/info.svg') }}" width="16" height="16" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Написать заказчику"><img src="{{ url_for('static', filename='img/talk.svg') }}" width="16" height="16" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Скрыть"><img src="{{ url_for('static', filename='img/eye.svg') }}" width="16" height="16" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Удалить"><img src="{{ url_for('static', filename='img/delete.svg') }}" width="16" height="16" alt=""></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Тапочки домашние, кофта...</td>
+                        <td>1100р.</td>
+                        <td><span class="yellow">В пути</span></td>
+                        <td><a href="#">admin</a></td>
+                        <td>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Изменить статус"><img src="{{ url_for('static', filename='img/change.svg') }}" width="16" height="16" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Подробнее"><img src="{{ url_for('static', filename='img/info.svg') }}" width="16" height="16" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Написать заказчику"><img src="{{ url_for('static', filename='img/talk.svg') }}" width="16" height="16" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Скрыть"><img src="{{ url_for('static', filename='img/eye.svg') }}" width="16" height="16" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Удалить"><img src="{{ url_for('static', filename='img/delete.svg') }}" width="16" height="16" alt=""></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Тапочки домашние, кофта...</td>
+                        <td>1100р.</td>
+                        <td><span class="red">Отменен</span></td>
+                        <td><a href="#">Ruslan</a></td>
+                        <td>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Изменить статус"><img src="{{ url_for('static', filename='img/change.svg') }}" width="16" height="16" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Подробнее"><img src="{{ url_for('static', filename='img/info.svg') }}" width="16" height="16" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Написать заказчику"><img src="{{ url_for('static', filename='img/talk.svg') }}" width="16" height="16" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Скрыть"><img src="{{ url_for('static', filename='img/eye.svg') }}" width="16" height="16" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Удалить"><img src="{{ url_for('static', filename='img/delete.svg') }}" width="16" height="16" alt=""></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+{% endblock %}

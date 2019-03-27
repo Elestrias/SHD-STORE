@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Store - Сообщения
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <div class="container-fluid" id="content">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <span class="list-group-item"><b>Личный кабинет</b></span>
+                    <a href="{{ url_for('lk_orders') }}" class="list-group-item list-group-item-action">
+                        Мои заказы
+                    </a>
+                    <a href="{{ url_for('lk_msg') }}" class="list-group-item list-group-item-action active">Сообщения     <span class="badge badge-light">3</span></a>
+                    <a href="#" class="list-group-item list-group-item-action">Бонусы</a>
+                    <a href="{{ url_for('lk_pass') }}" class="list-group-item list-group-item-action">Сменить пароль</a>
+                    <a href="{{ url_for('manager_panel') }}" class="list-group-item list-group-item-action">Панель менеджера</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">№</th>
+                        <th scope="col">Дата сообщения</th>
+                        <th scope="col">Тип</th>
+                        <th scope="col">Сообщение</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">128</th>
+                        <td>28-03-2018</td>
+                        <td class="blue">Оповещение</td>
+                        <td>Ваш заказ №24642 успешно отправлен. Вы можете отслеживать его на нашем сайте в разделе "Мои заказы"</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">129</th>
+                        <td>28-03-2018</td>
+                        <td class="green">Подтверждение</td>
+                        <td>Ваш заказ №24642 успешно оплачен. Мы отправим его в ближайшее время</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">131</th>
+                        <td>28-03-2018</td>
+                        <td class="red">Ошибка</td>
+                        <td>Мы не можем отправить ваш заказ, пока вы его не оплатите</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
