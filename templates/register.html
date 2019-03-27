@@ -12,21 +12,52 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <h1 class="centered">Регистрация</h1>
-                <form action="#" method="post">
+                <form action="{{ url_for('register') }}" method="post">
+                    {% if success %}
+                        <div class="alert alert-success" role="alert">
+                          Вам на почту отправлено письмо для подтверждения учетной записи
+                        </div>
+                    {% endif %}
+                    {% if user_exists %}
+                        <div class="alert alert-danger" role="alert">
+                          Пользователь с таким email уже существует. Вы можете <a href="{{ url_for('login') }}">войти</a>.
+                        </div>
+                    {% endif %}
+                    {% if email_empty %}
+                        <div class="alert alert-danger" role="alert">
+                          Введите почту
+                        </div>
+                    {% endif %}
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите email">
+                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите email">
                     </div>
+                    {% if pass_empty %}
+                        <div class="alert alert-danger" role="alert">
+                          Введите пароль не менее шести символов
+                        </div>
+                    {% endif %}
                     <div class="form-group">
                         <label for="exampleInputPassword1">Пароль</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ваш пароль">
+                        <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Ваш пароль">
+                        <small id="passHelp" class="form-text text-muted">Введите пароль не менее 6 символов</small>
                     </div>
+                    {% if diff_pass %}
+                        <div class="alert alert-danger" role="alert">
+                          Пароли не совпадают
+                        </div>
+                    {% endif %}
                     <div class="form-group">
                         <label for="exampleInputPassword2">Подтвердите пароль</label>
-                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Повторите ваш пароль">
+                        <input type="password" class="form-control" name="rpassword" id="exampleInputPassword2" placeholder="Повторите ваш пароль">
                     </div>
+                    {% if no_accept %}
+                        <div class="alert alert-danger" role="alert">
+                          Вы не согласились с условиями
+                        </div>
+                    {% endif %}
                     <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <input type="checkbox" class="form-check-input" name="accept" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Я согласен с условиями</label>
                     </div>
                     <button type="submit" class="btn btn-success">Зарегистрироваться</button>

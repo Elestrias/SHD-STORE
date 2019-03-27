@@ -22,7 +22,7 @@
                     <input class="form-control ml-md-2" type="search" size="85" placeholder="Поиск..." aria-label="Search">
                     <button class="btn btn-success my-sm-0" type="submit"><img src="{{ url_for('static', filename='img/magnifier.svg') }}" width="20" height="20" alt="magnifier"> </button>
                 </form>
-                {% if 'email' in session %}
+                {% if 'email' not in session %}
                     <form class="form-inline offset-sm-2">
                         <a href="{{ url_for('register') }}" class="btn btn-success mr-md-1">Регистрация</a>
                         <a href="{{ url_for('login') }}" class="btn btn-outline-success">Войти</a>
@@ -33,7 +33,7 @@
                         <a href="{{ url_for('lk_msg') }}" class="ml-md-2"><img src="{{ url_for('static', filename='img/bell.svg') }}" width="20" height="20" alt=""></a>
                         <span class="badge badge-light">3</span>
                         <a href="{{ url_for('lk_orders') }}" class="btn btn-link mr-md-1">Личный кабинет</a>
-                        <a href="/logout.html" class="btn btn-outline-success">Выйти</a>
+                        <a href="{{ url_for('logout') }}" class="btn btn-outline-success">Выйти</a>
                     </form>
                 {% endif %}
             </div>
