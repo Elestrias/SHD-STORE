@@ -34,7 +34,7 @@
                                     <s>{{ product.price }}</s> <span class="badge badge-danger">-{{ product.discount }}%</span>
                                 {% endif %}
                             </p>
-                            <a href="#" class="btn btn-warning btn-lg">Добавить в корзину</a>
+                            <a href="{{ url_for('add_cart', id=product.id) }}" class="btn btn-warning btn-lg">Добавить в корзину</a>
                             <br>
                             <br>
                             <p>Чтобы купить этот товар, добавьте его в корзину, а затем нажмите кнопку "Оформить заказ"</p>

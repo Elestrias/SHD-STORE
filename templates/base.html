@@ -31,7 +31,7 @@
                     <form class="form-inline offset-sm-1">
                         <a href="{{ url_for('basket') }}"><img src="{{ url_for('static', filename='img/basket.svg') }}" width="20" height="20" alt=""></a>
                         <a href="{{ url_for('lk_msg') }}" class="ml-md-2"><img src="{{ url_for('static', filename='img/bell.svg') }}" width="20" height="20" alt=""></a>
-                        <span class="badge badge-light">3</span>
+                        <span class="badge badge-light">{{ current_user.unread }}</span>
                         <a href="{{ url_for('lk_orders') }}" class="btn btn-link mr-md-1">Личный кабинет</a>
                         <a href="{{ url_for('logout') }}" class="btn btn-outline-success">Выйти</a>
                     </form>
@@ -40,7 +40,7 @@
         </nav>
         <ul class="cat">
             {% for cat in categories %}
-                <li><a {% if category == cat %} class="cat-active" {% endif %}href="{{ url_for('category', category=cat.engname) }}">{{ cat.name }}</a></li>
+                <li><a {% if category == cat %} class="cat-active" {% endif %}href="{{ url_for('category', categ=cat.engname) }}">{{ cat.name }}</a></li>
             {% endfor %}
         </ul>
         {% block content %}

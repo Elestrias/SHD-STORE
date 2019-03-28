@@ -198,7 +198,7 @@
                                         <table class="product-bar">
                                             <tr>
                                                 <td class="price">{{ products[i * 6 + j][1] }} р.</td>
-                                                <td class="rightcol"><a href="#"><img class="righted" src="img/basket-plus.svg" alt="" width="16" height="16"></a></td>
+                                                <td class="rightcol"><a href="{{ url_for('add_cart', id=products[i * 6 + j][0].id) }}"><img class="righted" src="{{ url_for('static', filename='img/basket-plus.svg') }}" alt="" width="16" height="16"></a></td>
                                             </tr>
                                         </table>
                                         {% if products[i * 6 + j][0].discount != 0 %}

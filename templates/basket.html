@@ -12,46 +12,66 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <h2>Корзина</h2>
-                <table class="table centered">
-                    <thead>
-                    <tr>
-                        <th scope="col">№ товара</th>
-                        <th scope="col">Название</th>
-                        <th scope="col">Количество</th>
-                        <th scope="col">Цена</th>
-                        <th scope="col">Доставка</th>
-                        <th scope="col">Итог</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        {% for prod, real_price, count in products %}
+                {% if basket != [] and sum != 0%}
+                    <table class="table centered">
+                        <thead>
                         <tr>
-                            <th scope="row">{{ prod.id }}</th>
-                            <td><a href="{{ url_for('product', id=prod.id) }}">{{ prod.name }}</a></td>
-                            <td>{{ count }}</td>
-                            <td>
-                                {% if prod.discount == 0 %}
-                                    <p class="no-margin">{{ prod.price }} р.</p>
-                                {% else %}
-                                    <p class="no-margin">{{ real_price }} р.</p>
-                                    <p class="no-margin"><s>{{ prod.price }} р.</s> <span class="badge badge-danger">-{{ prod.discount }}%</span></p>
-                                {% endif %}
-                            </td>
-                            {% if prod.delivery == 0 %}
-                                <td class="green">Бесплатно</td>
-                            {% else %}
-                                <td>{{ prod.delivery }} р.</td>
-                            {% endif %}
-                            <td>{{ count * real_price }} р.</td>
+                            <th scope="col">№ товара</th>
+                            <th scope="col">Название</th>
+                            <th scope="col">Количество</th>
+                            <th scope="col">Цена</th>
+                            <th scope="col">Доставка</th>
+                            <th scope="col">Итог</th>
+                            <th scope="col">Действия</th>
                         </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <div class="righted">
-                    <h3>Итого: {{ sum }} р.</h3>
-                    <a href="#" class="btn btn-warning btn-lg">Оформить заказ</a>
-                </div>
+                        </thead>
+                        <tbody>
+                            {% for prod, real_price, count, i in products %}
+                                <tr>
+                                    <th scope="row">{{ prod.id }}</th>
+                                    <td><a href="{{ url_for('product', id=prod.id) }}">{{ prod.name }}</a></td>
+                                    <td>{{ count }}</td>
+                                    <td>
+                                        {% if prod.discount == 0 %}
+                                            <p class="no-margin">{{ prod.price }} р.</p>
+                                        {% else %}
+                                            <p class="no-margin">{{ real_price }} р.</p>
+                                            <p class="no-margin"><s>{{ prod.price }} р.</s> <span class="badge badge-danger">-{{ prod.discount }}%</span></p>
+                                        {% endif %}
+                                    </td>
+                                    {% if prod.delivery == 0 %}
+                                        <td class="green">Бесплатно</td>
+                                    {% else %}
+                                        <td>{{ prod.delivery }} р.</td>
+                                    {% endif %}
+                                    <td>{{ count * real_price }} р.</td>
+                                    <td>
+                                        <a href="{{ url_for('remove_cart', id=i) }}" data-toggle="tooltip" data-placement="top" title="Удалить">
+                                            <img src="{{ url_for('static', filename='img/delete.svg') }}" width="16" height="16" alt="">
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="righted">
+                        <h3>Итого: {{ sum }} р.</h3>
+                        <a href="#" class="btn btn-warning btn-lg">Оформить заказ</a>
+                    </div>
+                {% else %}
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h4>Корзина пуста</h4>
+                {% endif %}
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block script %}
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 {% endblock %}

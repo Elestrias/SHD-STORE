@@ -15,7 +15,7 @@
                     <a href="{{ url_for('lk_orders') }}" class="list-group-item list-group-item-action active">
                         Мои заказы
                     </a>
-                    <a href="{{ url_for('lk_msg') }}" class="list-group-item list-group-item-action">Сообщения     <span class="badge badge-light">3</span></a>
+                    <a href="{{ url_for('lk_msg') }}" class="list-group-item list-group-item-action">Сообщения     <span class="badge badge-light">{{ current_user.unread }}</span></a>
                     <a href="#" class="list-group-item list-group-item-action">Бонусы</a>
                     <a href="{{ url_for('lk_pass') }}" class="list-group-item list-group-item-action">Сменить пароль</a>
                     <a href="{{ url_for('manager_panel') }}" class="list-group-item list-group-item-action">Панель менеджера</a>

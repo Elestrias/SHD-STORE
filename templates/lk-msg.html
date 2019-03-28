@@ -15,7 +15,7 @@
                     <a href="{{ url_for('lk_orders') }}" class="list-group-item list-group-item-action">
                         Мои заказы
                     </a>
-                    <a href="{{ url_for('lk_msg') }}" class="list-group-item list-group-item-action active">Сообщения     <span class="badge badge-light">3</span></a>
+                    <a href="{{ url_for('lk_msg') }}" class="list-group-item list-group-item-action active">Сообщения     <span class="badge badge-light">{{ current_user.unread }}</span></a>
                     <a href="#" class="list-group-item list-group-item-action">Бонусы</a>
                     <a href="{{ url_for('lk_pass') }}" class="list-group-item list-group-item-action">Сменить пароль</a>
                     <a href="{{ url_for('manager_panel') }}" class="list-group-item list-group-item-action">Панель менеджера</a>
@@ -32,24 +32,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">128</th>
-                        <td>28-03-2018</td>
-                        <td class="blue">Оповещение</td>
-                        <td>Ваш заказ №24642 успешно отправлен. Вы можете отслеживать его на нашем сайте в разделе "Мои заказы"</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">129</th>
-                        <td>28-03-2018</td>
-                        <td class="green">Подтверждение</td>
-                        <td>Ваш заказ №24642 успешно оплачен. Мы отправим его в ближайшее время</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">131</th>
-                        <td>28-03-2018</td>
-                        <td class="red">Ошибка</td>
-                        <td>Мы не можем отправить ваш заказ, пока вы его не оплатите</td>
-                    </tr>
+                    {% for msg in messages %}
+                        <tr>
+                            <th scope="row">{{ msg.id }}</th>
+                            <td>{{ msg.date }}</td>
+                            {% if msg.type == 1 %}
+                                <td class="blue">Оповещение</td>
+                            {% elif msg.type == 2 %}
+                                <td class="green">Подтверждение</td>
+                            {% else %}
+                                <td class="red">Ошибка</td>
+                            {% endif %}
+                            <td>{{ msg.message }}</td>
+                        </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>
