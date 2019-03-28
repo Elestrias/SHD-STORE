@@ -39,15 +39,9 @@
             </div>
         </nav>
         <ul class="cat">
-            <li><a href="#">Женщинам</a></li>
-            <li><a href="#">Мужчинам</a></li>
-            <li><a href="#">Детям</a></li>
-            <li><a href="#">Обувь</a></li>
-            <li><a href="#">Книги и канцтовары</a></li>
-            <li><a href="#">Спорт</a></li>
-            <li><a href="#">Игрушки</a></li>
-            <li><a href="#">Новинки</a></li>
-            <li><a href="#">Акции</a></li>
+            {% for cat in categories %}
+                <li><a {% if category == cat %} class="cat-active" {% endif %}href="{{ url_for('category', category=cat.engname) }}">{{ cat.name }}</a></li>
+            {% endfor %}
         </ul>
         {% block content %}
 

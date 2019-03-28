@@ -24,43 +24,31 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">683468</th>
-                        <td><a href="#">Тапочки домашние</a></td>
-                        <td>2</td>
-                        <td>
-                            <p class="no-margin">1000 р.</p>
-                            <p class="no-margin"><s>2000 р.</s> <span class="badge badge-danger">-50%</span></p>
-                        </td>
-                        <td class="green">Бесплатно</td>
-                        <td>2000 р.</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">683468</th>
-                        <td><a href="#">Тапочки домашние</a></td>
-                        <td>2</td>
-                        <td>
-                            <p class="no-margin">1000 р.</p>
-                            <p class="no-margin"><s>2000 р.</s> <span class="badge badge-danger">-50%</span></p>
-                        </td>
-                        <td class="green">Бесплатно</td>
-                        <td>2000 р.</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">683468</th>
-                        <td><a href="#">Тапочки домашние</a></td>
-                        <td>2</td>
-                        <td>
-                            <p class="no-margin">1000 р.</p>
-                            <p class="no-margin"><s>2000 р.</s> <span class="badge badge-danger">-50%</span></p>
-                        </td>
-                        <td class="green">Бесплатно</td>
-                        <td>2000 р.</td>
-                    </tr>
+                        {% for prod, real_price, count in products %}
+                        <tr>
+                            <th scope="row">{{ prod.id }}</th>
+                            <td><a href="{{ url_for('product', id=prod.id) }}">{{ prod.name }}</a></td>
+                            <td>{{ count }}</td>
+                            <td>
+                                {% if prod.discount == 0 %}
+                                    <p class="no-margin">{{ prod.price }} р.</p>
+                                {% else %}
+                                    <p class="no-margin">{{ real_price }} р.</p>
+                                    <p class="no-margin"><s>{{ prod.price }} р.</s> <span class="badge badge-danger">-{{ prod.discount }}%</span></p>
+                                {% endif %}
+                            </td>
+                            {% if prod.delivery == 0 %}
+                                <td class="green">Бесплатно</td>
+                            {% else %}
+                                <td>{{ prod.delivery }} р.</td>
+                            {% endif %}
+                            <td>{{ count * real_price }} р.</td>
+                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
                 <div class="righted">
-                    <h3>Итого: 3000 р.</h3>
+                    <h3>Итого: {{ sum }} р.</h3>
                     <a href="#" class="btn btn-warning btn-lg">Оформить заказ</a>
                 </div>
             </div>

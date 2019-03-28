@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Store - Товар
+{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="container-fluid" id="content">
+        <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url_for('category', category=product.category.engname) }}">{{ product.category.name }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <table width="100%">
+                    <tr>
+                        <td width="50%">
+                            <img src="{{ url_for('static', filename='upload_img/' + product.image_url) }}" width="300" height="300" alt="">
+                        </td>
+                        <td>
+                            <h3>{{ product.name }}</h3>
+                            <p>
+                                {% if product.discount == 0 %}
+                                    <span class="price">{{ product.price }} р.</span>
+                                {% else %}
+                                    <span class="price">{{ real_price }} р.</span>
+                                    <s>{{ product.price }}</s> <span class="badge badge-danger">-{{ product.discount }}%</span>
+                                {% endif %}
+                            </p>
+                            <a href="#" class="btn btn-warning btn-lg">Добавить в корзину</a>
+                            <br>
+                            <br>
+                            <p>Чтобы купить этот товар, добавьте его в корзину, а затем нажмите кнопку "Оформить заказ"</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h5>Описание товара</h5>
+                {{ product.description }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
