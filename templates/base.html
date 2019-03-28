@@ -9,7 +9,7 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">SHD-STORE</a>
+        <a class="navbar-brand" href="/">SHD-STORE</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,7 +25,18 @@
               <a class="nav-link disabled" href="#">Adm-link(in progress)</a>
             </li>
           </ul>
-              </div>
+            {% if request.cookies.get('email') == None %}
+        <form class="form-inline my-2 my-lg-0">
+              <a href="/login" class="btn btn-outline-success form-control mr-sm-2">Войти</a>
+              <a href="/registration" class="btn btn-success">Регистрация</a>
+          </form>
+            {% else %}
+                <form class="form-inline my-2 my-lg-0">
+                    <a href="/profile" class="btn btn-link form-control mr-sm-2">{{ request.cookies.get('email') }}</a>
+                    <a href="/logout" class="btn btn-outline-success">Выход</a>
+                </form>
+            {% endif %}
+        </div>
       </nav>
     </header>
       <form class="form-inline mt-2 mt-md-0">
