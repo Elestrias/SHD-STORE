@@ -33,27 +33,23 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Тапочки домашние, кофта...</td>
-                        <td>1100р.</td>
-                        <td><span class="green">Доставлено</span></td>
-                        <td><a href="#">Подробности</a>     <a href="#">Удалить</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Тапочки домашние, кофта...</td>
-                        <td>1100р.</td>
-                        <td><span class="yellow">В пути</span></td>
-                        <td><a href="#">Подробности</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Тапочки домашние, кофта...</td>
-                        <td>1100р.</td>
-                        <td><span class="red">Отменен</span></td>
-                        <td><a href="#">Подробности</a>     <a href="#">Удалить</a></td>
-                    </tr>
+                    {% for order in orders %}
+                        <tr>
+                            <th scope="row">{{ order[0].id }}</th>
+                            <td>{{ order[2] }}</td>
+                            <td>{{ order[1] }} р.</td>
+                            {% if order[0].status == 0 %}
+                                <td><span class="blue">Готовится</span></td>
+                            {% elif order[0].status == 1 %}
+                                <td><span class="yellow">В пути</span></td>
+                            {% elif order[0].status == 2 %}
+                                <td><span class="green">Доставлено</span></td>
+                            {% elif order[0].status == 3 %}
+                                <td><span class="red">Отменен</span></td>
+                            {% endif %}
+                            <td><a href="#">Подробности</a>
+                        </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>

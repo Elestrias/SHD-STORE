@@ -194,7 +194,7 @@
                             {% for j in range(6) %}
                                 {% if i * 6 + j < len %}
                                     <div class="col-md-2 centered">
-                                        <a href="{{ url_for('product', id=products[i * 6 + j][0].id) }}"><img src="{{ url_for('static', filename='upload_img/' + products[i * 6 + j][0].image_url) }}" alt=""></a>
+                                        <a href="{{ url_for('product', id=products[i * 6 + j][0].id) }}"><img src="{{ url_for('static', filename='upload_img/' + products[i * 6 + j][0].image_url) }}" width="180" height="240" alt=""></a>
                                         <table class="product-bar">
                                             <tr>
                                                 <td class="price">{{ products[i * 6 + j][1] }} р.</td>

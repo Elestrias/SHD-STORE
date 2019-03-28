@@ -62,11 +62,32 @@ class Message(db.Model):
     user = db.relationship('User', backref=db.backref('messages', lazy=True))
 
 
+class Order(db.Model):
+
+    __tablename__ = 'order'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    products = db.Column(db.String(500), nullable=False)
+    status = db.Column(db.Integer, default=0)
+    delivery_point = db.Column(db.Integer, default=0)
+    shown = db.Column(db.Integer, default=1)
+    wishes = db.Column(db.String(1000))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    user = db.relationship('User', backref=db.backref('orders', lazy=True))
+    '''
+    0 - Готовится
+    1 - В пути
+    2 - Доставлено
+    3 - Отменен
+    '''
+
+
 db.create_all()
 '''
 cat = Category.query.filter_by(id=1).first()
-prod = Product(name='Тапочки домашние', description='Lorem ipsum dolor sit amet', count=100, delivery=0,
-               image_url='http://asds.ru/1.jpg', price=2000, discount=50, category=cat)
+prod = Product(name='Кроссовки', description='lorem ipsum', count=100, delivery=50,
+               image_url='cross.jpg', price=4600, discount=25, category=cat)
 db.session.add(prod)
 db.session.commit()
 '''

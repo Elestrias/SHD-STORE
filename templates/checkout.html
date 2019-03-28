@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Store - Оформление заказа
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <div class="container-fluid" id="content">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2>Оформление заказа</h2>
+                <table class="table centered">
+                    <thead>
+                    <tr>
+                        <th scope="col">№ товара</th>
+                        <th scope="col">Название</th>
+                        <th scope="col">Количество</th>
+                        <th scope="col">Цена</th>
+                        <th scope="col">Доставка</th>
+                        <th scope="col">Итог</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for prod, real_price, count, i in products %}
+                            <tr>
+                                <th scope="row">{{ prod.id }}</th>
+                                <td><a href="{{ url_for('product', id=prod.id) }}">{{ prod.name }}</a></td>
+                                <td>{{ count }}</td>
+                                <td>
+                                    {% if prod.discount == 0 %}
+                                        <p class="no-margin">{{ prod.price }} р.</p>
+                                    {% else %}
+                                        <p class="no-margin">{{ real_price }} р.</p>
+                                        <p class="no-margin"><s>{{ prod.price }} р.</s> <span class="badge badge-danger">-{{ prod.discount }}%</span></p>
+                                    {% endif %}
+                                </td>
+                                {% if prod.delivery == 0 %}
+                                    <td class="green">Бесплатно</td>
+                                {% else %}
+                                    <td>{{ prod.delivery }} р.</td>
+                                {% endif %}
+                                <td>{{ count * real_price + prod.delivery }} р.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="righted">
+                    <h3>Итого: {{ sum }} р.</h3>
+                </div>
+                <form action="{{ url_for('checkout') }}" method="post">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Выберите точку доставки</label>
+                        <select class="form-control" name="point" id="exampleFormControlSelect1">
+                            <option value="0" selected>1 - ул. Радищева</option>
+                            <option value="1">2 - ул. Орлова</option>
+                            <option value="2">3 - ул. Рябикова</option>
+                            <option value="3">4 - ул. Ленина</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Комментарий к заказу</label>
+                        <textarea class="form-control" name="wishes" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-warning">Оформить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

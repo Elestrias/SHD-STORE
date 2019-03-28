@@ -11,7 +11,7 @@
             <div class="col">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url_for('category', category=product.category.engname) }}">{{ product.category.name }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url_for('category', categ=product.category.engname) }}">{{ product.category.name }}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
                     </ol>
                 </nav>

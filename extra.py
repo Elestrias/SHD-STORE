@@ -1,4 +1,4 @@
-from models import db, Message as Msg, User, Category
+from models import db, Message as Msg, User, Category, Product
 from flask import session, render_template
 
 MESSAGE_NOTIFICATION = 1
@@ -26,3 +26,21 @@ def get_current_user():
     if 'email' not in session:
         return None
     return User.query.filter_by(email=session['email']).first()
+
+
+def get_real_price(products):
+    summa = 0
+    for pr in products:
+        product = Product.query.filter_by(id=pr['id']).first()
+        summa += int(product.price * (1 - product.discount / 100) * pr['count'] + product.delivery)
+    return summa
+
+
+def get_predesc(products):
+    items = []
+    for prod in products:
+        items.append(Product.query.filter_by(id=prod['id']).first().name)
+    res = ', '.join(items)
+    if len(res) <= 25:
+        return res
+    return ', '.join(items)[:25] + '...'

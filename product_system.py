@@ -1,5 +1,4 @@
 from app import app
-from models import Product
 from extra import *
 
 
