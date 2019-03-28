@@ -1,5 +1,7 @@
+import hashlib
 from models import db, Message as Msg, User, Category, Product
 from flask import session, render_template
+from config import *
 
 MESSAGE_NOTIFICATION = 1
 MESSAGE_SUCCESS = 2
@@ -44,3 +46,7 @@ def get_predesc(products):
     if len(res) <= 25:
         return res
     return ', '.join(items)[:25] + '...'
+
+
+def hash_password(password):
+    return hashlib.md5((SALT + password).encode('utf-8')).hexdigest()

@@ -1,7 +1,8 @@
+import random
+
 from app import app, mail
 from flask import request, redirect, url_for
 from extra import *
-import hashlib
 from config import *
 from flask_mail import Message
 
@@ -21,8 +22,8 @@ def register():
             return render('register.html', no_accept=True)
         if User.query.filter_by(email=request.form['email']).first() is not None:
             return render('register.html', user_exists=True)
-        password = hashlib.md5((SALT + request.form['password']).encode('utf-8')).hexdigest()
-        hashcode = hashlib.md5((request.form['email'] + request.form['password']).encode('utf-8')).hexdigest()
+        password = hash_password(request.form['password'])
+        hashcode = hash_password(request.form['password'] + request.form['email'] + random.randint(0, 9999))
         user = User(email=request.form['email'], password=password, hashcode=hashcode)
         update_db(user)
         msg = Message('Подтверждение учетной записи',
@@ -45,14 +46,14 @@ def login():
         user = User.query.filter_by(email=request.form['email']).first()
         if user is None:
             return render('login.html', bad_data=True)
-        if user.password != hashlib.md5((SALT + request.form['password']).encode('utf-8')).hexdigest():
+        if user.password != hash_password(request.form['password']):
             return render('login.html', bad_data=True)
         if user.role == 0:
             return render('login.html', banned=True)
         if user.hashcode != '':
             return render('login.html', unactivated=True)
         session['email'] = request.form['email']
-        session['password'] = hashlib.md5(request.form['password'].encode('utf-8')).hexdigest()
+        session['password'] = hash_password(request.form['password'])
         return redirect(url_for('index'))
 
 

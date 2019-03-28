@@ -21,21 +21,41 @@
                     <a href="{{ url_for('manager_panel') }}" class="list-group-item list-group-item-action">Панель менеджера</a>
                 </div>
             </div>
-            <div class="col-md-5 offset-md-2 centered">
+            <div class="col-md-5 offset-md-2">
                 <br>
                 <h2>Восстановление пароля</h2>
-                <form>
+                {% if empty %}
+                    <div class="alert alert-danger" role="alert">
+                        Вы заполнили не все поля!
+                    </div>
+                {% endif %}
+                {% if diff %}
+                    <div class="alert alert-danger" role="alert">
+                        Вы ввели разные пароли!
+                    </div>
+                {% endif %}
+                {% if bad_old %}
+                    <div class="alert alert-danger" role="alert">
+                        Старый пароль не верный!
+                    </div>
+                {% endif %}
+                {% if success %}
+                    <div class="alert alert-success" role="alert">
+                        Пароль успешно изменен
+                    </div>
+                {% endif %}
+                <form action="{{ url_for('lk_pass') }}" method="post">
                     <div class="form-group">
                         <label for="old-pass">Старый пароль</label>
-                        <input type="password" class="form-control" id="old-pass" aria-describedby="emailHelp" placeholder="Введите старый пароль">
+                        <input type="password" class="form-control" name="old-pass" id="old-pass" aria-describedby="emailHelp" placeholder="Введите старый пароль">
                     </div>
                     <div class="form-group">
                         <label for="new-pass">Придумайте новый пароль</label>
-                        <input type="password" class="form-control" id="new-pass" placeholder="Новый пароль">
+                        <input type="password" class="form-control" name="new-pass" id="new-pass" placeholder="Новый пароль">
                     </div>
                     <div class="form-group">
                         <label for="new-rpass">Подтвердите новый пароль</label>
-                        <input type="password" class="form-control" id="new-rpass" placeholder="Повторите новый пароль">
+                        <input type="password" class="form-control" name="new-rpass" id="new-rpass" placeholder="Повторите новый пароль">
                     </div>
                     <button type="submit" class="btn btn-success">Изменить</button>
                 </form>
