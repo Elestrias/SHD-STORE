@@ -23,7 +23,7 @@ def register():
         if User.query.filter_by(email=request.form['email']).first() is not None:
             return render('register.html', user_exists=True)
         password = hash_password(request.form['password'])
-        hashcode = hash_password(request.form['password'] + request.form['email'] + random.randint(0, 9999))
+        hashcode = hash_password(request.form['password'] + request.form['email'] + str(random.randint(0, 9999)))
         user = User(email=request.form['email'], password=password, hashcode=hashcode)
         update_db(user)
         msg = Message('Подтверждение учетной записи',
@@ -62,6 +62,18 @@ def logout():
     session.pop('email', None)
     session.pop('password', None)
     return redirect(url_for('index'))
+
+
+@app.route('/confirm/<int:user_id>')
+def admin_confirm(user_id):
+    if 'email' not in session:
+        return redirect(url_for('index'))
+    if get_current_user().role < 3:
+        return redirect(url_for('index'))
+    user = User.query.filter_by(id=user_id).first()
+    user.hashcode = ''
+    update_db(user)
+    return redirect(url_for('user_info', user_id=user_id))
 
 
 @app.route('/confirm/<hashcode>')

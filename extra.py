@@ -15,6 +15,7 @@ def render(temp, **kwargs):
 def update_db(obj):
     db.session.add(obj)
     db.session.commit()
+    db.session.flush()
 
 
 def send_message(type, msg, user):

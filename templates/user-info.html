@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Store - Просмотр пользователя
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <div class="container" id="content">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h3>Информация о пользователе №{{ user.id }}</h3>
+                <p>Email: {{ user.email }}</p>
+                <p>
+                    Подтвержден:
+                {% if user.hashcode == '' %}
+                    Да
+                {% else %}
+                    Нет
+                    {% if current_user.role > 2 %}
+                        <a href="{{ url_for('admin_confirm', user_id=user.id) }}" data-toggle="tooltip" data-placement="top" title="Подтвердить пользователя"><img src="{{ url_for('static', filename='img/check.svg') }}" width="16" height="16" alt=""></a>
+                    {% endif %}
+                {% endif %}
+                </p>
+                <p>
+                    Роль:
+                    {% if user.role == 0 %}
+                        Заблокирован
+                    {% elif user.role == 1 %}
+                        Пользователь
+                    {% elif user.role == 2 %}
+                        Менеджер
+                    {% elif user.role == 3 %}
+                        Администратор
+                    {% endif %}
+                    {% if current_user.role > 2 %}
+                        <a href="{{ url_for('change_status', user_id=user.id) }}" data-toggle="tooltip" data-placement="top" title="Изменить статус"><img src="{{ url_for('static', filename='img/pencil.svg') }}" width="16" height="16" alt=""></a>
+                    {% endif %}
+                </p>
+                <p>Количество заказов: {{ count_orders }}</p>
+                <h6>Действия</h6>
+                <a href="{{ url_for('send_msg', user_id=user.id) }}" data-toggle="tooltip" data-placement="top" title="Написать пользователю"><img src="{{ url_for('static', filename='img/talk.svg') }}" width="32" height="32" alt=""></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+{% endblock %}

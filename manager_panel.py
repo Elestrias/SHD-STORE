@@ -100,3 +100,13 @@ def order_info(id):
         products[i] = [prod, real_price, products[i]['count'], i]
         summa += real_price * products[i][2] + products[i][0].delivery
     return render('order-info.html', order=order, products=products, sum=summa)
+
+
+@app.route('/user-info/<int:user_id>')
+def user_info(user_id):
+    if 'email' not in session:
+        return redirect(url_for('index'))
+    if get_current_user().role < 2:
+        return redirect(url_for('index'))
+    user = User.query.filter_by(id=user_id).first()
+    return render('user-info.html', user=user, count_orders=len(user.orders))

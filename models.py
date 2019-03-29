@@ -9,7 +9,7 @@ class User(db.Model):
     password = db.Column(db.String(50), unique=False, nullable=False)
     unread = db.Column(db.Integer, default=0)
     role = db.Column(db.Integer, unique=False, nullable=False, default=1)
-    hashcode = db.Column(db.String(50), unique=True)
+    hashcode = db.Column(db.String(50))
 
     '''
         0 - banned
