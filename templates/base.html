@@ -18,8 +18,8 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control ml-md-2" type="search" size="85" placeholder="Поиск..." aria-label="Search">
+                <form action="{{ url_for('search') }}" method="post" class="form-inline my-2 my-lg-0">
+                    <input class="form-control ml-md-2" type="search" size="85" name="s" placeholder="Поиск..." aria-label="Search">
                     <button class="btn btn-success my-sm-0" type="submit"><img src="{{ url_for('static', filename='img/magnifier.svg') }}" width="20" height="20" alt="magnifier"> </button>
                 </form>
                 {% if 'email' not in session %}

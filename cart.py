@@ -62,6 +62,10 @@ def checkout():
         user = get_current_user()
         order = Order(products=repr(session['basket']), delivery_point=int(request.form.get('point')[0]),
                       wishes=request.form['wishes'], user=user)
+        for product in session['basket']:
+            pr = Product.query.filter_by(id=product['id']).first()
+            pr.count -= int(product['count'])
+            update_db(pr)
         update_db(order)
         send_message(MESSAGE_SUCCESS, 'Ваш заказ успешно оформлен. Вы можете отслеживать его в разделе "Мои заказы"', user)
         session['basket'] = []

@@ -26,6 +26,7 @@
                         </td>
                         <td>
                             <h3>{{ product.name }}</h3>
+                            <p>Осталось: {{ product.count }}</p>
                             <p>
                                 {% if product.discount == 0 %}
                                     <span class="price">{{ product.price }} р.</span>
@@ -34,7 +35,13 @@
                                     <s>{{ product.price }}</s> <span class="badge badge-danger">-{{ product.discount }}%</span>
                                 {% endif %}
                             </p>
-                            <a href="{{ url_for('add_cart', id=product.id) }}" class="btn btn-warning btn-lg">Добавить в корзину</a>
+                            {% if product.count > 0 %}
+                                <a href="{{ url_for('add_cart', id=product.id) }}" class="btn btn-warning btn-lg">Добавить в корзину</a>
+                            {% else %}
+                                <div class="alert alert-danger" role="alert">
+                                    Товар распродан
+                                </div>
+                            {% endif %}
                             <br>
                             <br>
                             <p>Чтобы купить этот товар, добавьте его в корзину, а затем нажмите кнопку "Оформить заказ"</p>
