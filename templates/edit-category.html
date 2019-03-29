@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Store
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <div class="container" id="content">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <h3>Изменение категории</h3>
+                <form action="{{ url_for('edit_category', id=cat.id) }}" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Название категории</label>
+                    <input type="text" class="form-control" name="cat_name" value="{{ cat.name }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Обувь">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail2">URL</label>
+                    <input type="text" class="form-control" name="cat_engname" value="{{ cat.engname }}" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="shoes">
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" name="cat_shown" id="exampleCheck1" {% if cat.shown == 1 %}checked{% endif %}>
+                    <label class="form-check-label" for="exampleCheck1">Показывать</label>
+                  </div>
+                  <button type="submit" class="btn btn-warning">Изменить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

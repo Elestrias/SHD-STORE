@@ -142,16 +142,51 @@ def delete_product(id):
     return redirect(url_for('admin_products'))
 
 
-@app.route('/add-category')
+@app.route('/add-category', methods=['GET', 'POST'])
 def add_category():
-    return ''
+    if 'email' not in session:
+        return redirect(url_for('index'))
+    if get_current_user().role < 3:
+        return redirect(url_for('index'))
+    if request.method == 'GET':
+        return render('add-category.html')
+    else:
+        cat = Category(name=request.form['cat_name'],
+                       engname=request.form['cat_engname'],
+                       shown=1 if bool(request.form.get('cat_shown')) else 0)
+        update_db(cat)
+        return redirect(url_for('admin_categories'))
 
 
 @app.route('/edit-category/<int:id>', methods=['GET', 'POST'])
 def edit_category(id):
-    return ''
+    if 'email' not in session:
+        return redirect(url_for('index'))
+    if get_current_user().role < 3:
+        return redirect(url_for('index'))
+    if request.method == 'GET':
+        cat = Category.query.filter_by(id=id).first()
+        return render('edit-category.html', cat=cat)
+    else:
+        cat = Category.query.filter_by(id=id).first()
+        cat.name = request.form['cat_name']
+        cat.engname = request.form['cat_engname']
+        cat.shown = 1 if bool(request.form.get('cat_shown')) else 0
+        update_db(cat)
+        return redirect(url_for('admin_categories'))
 
 
-@app.route('/delete-category/<int:id>', methods=['GET', 'POST'])
+@app.route('/delete-category/<int:id>')
 def delete_category(id):
-    return ''
+    if 'email' not in session:
+        return redirect(url_for('index'))
+    if get_current_user().role < 3:
+        return redirect(url_for('index'))
+    cat = Category.query.filter_by(id=id).first()
+    products = Product.query.filter_by(category=cat).all()
+    for prod in products:
+        db.session.delete(prod)
+        db.session.commit()
+    db.session.delete(cat)
+    db.session.commit()
+    return redirect(url_for('admin_categories'))
