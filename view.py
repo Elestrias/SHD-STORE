@@ -2,6 +2,7 @@ from auth import *
 from lk import *
 from cart import *
 from product_system import *
+from manager_panel import *
 
 
 @app.route('/')

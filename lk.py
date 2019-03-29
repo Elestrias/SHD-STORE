@@ -42,10 +42,3 @@ def lk_pass():
         user.password = hash_password(request.form['new-pass'])
         update_db(user)
         return render('lk-pass.html', success=True)
-
-
-@app.route('/manager-panel')
-def manager_panel():
-    if 'email' not in session:
-        return redirect(url_for('index'))
-    return render('manager-panel.html')

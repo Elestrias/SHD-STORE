@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Store - Отправка сообщения
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container" id="content">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form action="{{ url_for('send_msg', user_id=user_id) }}" method="post">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Выберите тип сообщения</label>
+                        <select class="form-control" name="type" id="exampleFormControlSelect1">
+                            <option value="1" selected>1 - Уведомление</option>
+                            <option value="2">2 - Подтверждение</option>
+                            <option value="3">3 - Ошибка</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Сообщение</label>
+                        <textarea class="form-control" name="msg" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <a href="{{ url_for('manager_panel') }}" class="btn btn-light">Отмена</a>
+                    <button type="submit" class="btn btn-warning">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

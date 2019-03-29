@@ -28,11 +28,11 @@
                         <a href="{{ url_for('login') }}" class="btn btn-outline-success">Войти</a>
                     </form>
                 {% else %}
-                    <form class="form-inline offset-sm-1">
+                    <form class="form-inline ml-auto">
                         <a href="{{ url_for('basket') }}"><img src="{{ url_for('static', filename='img/basket.svg') }}" width="20" height="20" alt=""></a>
                         <a href="{{ url_for('lk_msg') }}" class="ml-md-2"><img src="{{ url_for('static', filename='img/bell.svg') }}" width="20" height="20" alt=""></a>
                         <span class="badge badge-light">{{ current_user.unread }}</span>
-                        <a href="{{ url_for('lk_orders') }}" class="btn btn-link mr-md-1">Личный кабинет</a>
+                        <a href="{{ url_for('lk_orders') }}" class="btn btn-link mr-md-1">{{ current_user.email }}</a>
                         <a href="{{ url_for('logout') }}" class="btn btn-outline-success">Выйти</a>
                     </form>
                 {% endif %}

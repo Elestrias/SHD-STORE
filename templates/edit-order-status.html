@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Store - Изменить статус заказа
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container" id="content">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form action="{{ url_for('edit_order_status', id=id) }}" method="post">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Выберите статус</label>
+                        <select class="form-control" name="status" id="exampleFormControlSelect1">
+                            <option value="0" selected>1 - Готовится</option>
+                            <option value="1">2 - В пути</option>
+                            <option value="2">3 - Доставлен</option>
+                            <option value="3">4 - Отменен</option>
+                        </select>
+                    </div>
+                    <a href="{{ url_for('manager_panel') }}" class="btn btn-light">Отмена</a>
+                    <button type="submit" class="btn btn-warning">Изменить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

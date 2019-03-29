@@ -18,7 +18,9 @@
                     <a href="{{ url_for('lk_msg') }}" class="list-group-item list-group-item-action active">Сообщения     <span class="badge badge-light">{{ current_user.unread }}</span></a>
                     <a href="#" class="list-group-item list-group-item-action">Бонусы</a>
                     <a href="{{ url_for('lk_pass') }}" class="list-group-item list-group-item-action">Сменить пароль</a>
-                    <a href="{{ url_for('manager_panel') }}" class="list-group-item list-group-item-action">Панель менеджера</a>
+                    {% if current_user.role > 1 %}
+                        <a href="{{ url_for('manager_panel') }}" class="list-group-item list-group-item-action">Панель менеджера</a>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-md-9">

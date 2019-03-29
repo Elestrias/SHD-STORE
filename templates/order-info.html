@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Store - Просмотр заказа
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <div class="container-fluid" id="content">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2>Заказ №{{ order.id }}</h2>
+                <p>Статус заказа:
+                    {% if order.status == 0 %}
+                        <span class="blue">Готовится</span>
+                    {% elif order.status == 1 %}
+                        <span class="yellow">В пути</span>
+                    {% elif order.status == 2 %}
+                        <span class="green">Доставлено</span>
+                    {% elif order.status == 3 %}
+                        <span class="red">Отменен</span>
+                    {% endif %}
+                </p>
+                <p>
+                    Доставка:
+                    {% if order.delivery_point == 0 %}
+                        1 - ул. Радищева
+                    {% elif order.delivery_point == 1 %}
+                        2 - ул. Орлова
+                    {% elif order.delivery_point == 2 %}
+                        3 - ул. Рябикова
+                    {% else %}
+                        4 - ул. Ленина
+                    {% endif %}
+                </p>
+                {% if current_user.role > 1 %}
+                    <a href="{{ url_for('edit_order_status', id=order.id) }}" data-toggle="tooltip" data-placement="top" title="Изменить статус"><img src="{{ url_for('static', filename='img/change.svg') }}" width="16" height="16" alt=""></a>
+                    <a href="{{ url_for('send_msg', user_id=order.user.id) }}" data-toggle="tooltip" data-placement="top" title="Написать заказчику"><img src="{{ url_for('static', filename='img/talk.svg') }}" width="16" height="16" alt=""></a>
+                    <a href="{{ url_for('order_hide', id=order.id) }}" data-toggle="tooltip" data-placement="top" title="Скрыть"><img src="{{ url_for('static', filename='img/eye.svg') }}" width="16" height="16" alt=""></a>
+                    <a href="{{ url_for('delete_order', id=order.id) }}" data-toggle="tooltip" data-placement="top" title="Удалить"><img src="{{ url_for('static', filename='img/delete.svg') }}" width="16" height="16" alt=""></a>
+                {% endif %}
+                <h3>Состав заказа</h3>
+                <table class="table centered">
+                    <thead>
+                    <tr>
+                        <th scope="col">№ товара</th>
+                        <th scope="col">Название</th>
+                        <th scope="col">Количество</th>
+                        <th scope="col">Цена</th>
+                        <th scope="col">Доставка</th>
+                        <th scope="col">Итог</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for prod, real_price, count, i in products %}
+                            <tr>
+                                <th scope="row">{{ prod.id }}</th>
+                                <td><a href="{{ url_for('product', id=prod.id) }}">{{ prod.name }}</a></td>
+                                <td>{{ count }}</td>
+                                <td>
+                                    {% if prod.discount == 0 %}
+                                        <p class="no-margin">{{ prod.price }} р.</p>
+                                    {% else %}
+                                        <p class="no-margin">{{ real_price }} р.</p>
+                                        <p class="no-margin"><s>{{ prod.price }} р.</s> <span class="badge badge-danger">-{{ prod.discount }}%</span></p>
+                                    {% endif %}
+                                </td>
+                                {% if prod.delivery == 0 %}
+                                    <td class="green">Бесплатно</td>
+                                {% else %}
+                                    <td>{{ prod.delivery }} р.</td>
+                                {% endif %}
+                                <td>{{ count * real_price + prod.delivery }} р.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="righted">
+                    <h3>Итого: {{ sum }} р.</h3>
+                </div>
+                <div class="lefted">
+                    <h5>Ваши пожелания</h5>
+                    <p>{{ order.wishes }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
