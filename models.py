@@ -66,7 +66,7 @@ class OrderStatus(db.Model):
     __tablename__ = 'orderstatus'
 
     id = db.Column(db.Integer, primary_key = True, autoincrement=True)
-    date = db.Column(db.DateTime(timezone=True), server_default=func.now())
+    name = db.Column(db.DateTime(timezone=True), server_default=func.now())
     seller_notes = db.Column(db.String(500), nullable=False)
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
 
