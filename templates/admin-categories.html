@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}
+    StoreAdmin - Категории
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <div class="container-fluid" id="content">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <span class="list-group-item"><b>Админ панель</b></span>
+                    <a href="{{ url_for('admin') }}" class="list-group-item list-group-item-action">
+                        Главная
+                    </a>
+                    <a href="{{ url_for('admin_products') }}" class="list-group-item list-group-item-action">Товары</a>
+                    <a href="{{ url_for('admin_categories') }}" class="list-group-item list-group-item-action active">Категории</a>
+                    <a href="{{ url_for('admin_users') }}" class="list-group-item list-group-item-action">Пользователи</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h3>
+                    Категории
+                    <a href="{{ url_for('add_category') }}" data-toggle="tooltip" data-placement="top" title="Добавить категорию">
+                        <img src="{{ url_for('static', filename='img/plus.svg') }}" width="16" height="16" alt="">
+                    </a>
+                </h3>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">№ категории</th>
+                        <th scope="col">Название</th>
+                        <th scope="col">URL</th>
+                        <th scope="col">Показывается</th>
+                        <th scope="col">Действия</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for cat in cats %}
+                        <tr>
+                            <th scope="row">{{ cat.id }}</th>
+                            <td><a href="{{ url_for('category', categ=cat.engname) }}">{{ cat.name }}</a></td>
+                            <td>{{ cat.engname }}</td>
+                            <td>
+                                {% if cat.shown == 1 %}
+                                    Да
+                                {% else %}
+                                    Нет
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{{ url_for('edit_category', id=cat.id) }}" data-toggle="tooltip" data-placement="top" title="Изменить категорию">
+                                    <img src="{{ url_for('static', filename='img/pencil.svg') }}" width="16" height="16" alt="">
+                                </a>
+                                <a href="{{ url_for('delete_category', id=cat.id) }}" data-toggle="tooltip" data-placement="top" title="Удалить категорию">
+                                    <img src="{{ url_for('static', filename='img/delete.svg') }}" width="16" height="16" alt="">
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+{% endblock %}

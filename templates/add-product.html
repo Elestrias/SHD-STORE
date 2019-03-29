@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Store
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <div class="container" id="content">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <h3>Добавление товара</h3>
+                <form action="{{ url_for('add_product') }}" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Название товара</label>
+                    <input type="text" class="form-control" name="prod_name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Кроссовки">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Описание товара</label>
+                    <textarea class="form-control" name="prod_description" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail2">Количество на складе</label>
+                    <input type="text" class="form-control" name="prod_count" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="25">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail3">Стоимость доставки</label>
+                    <input type="text" class="form-control" name="prod_delivery" id="exampleInputEmail3" aria-describedby="emailHelp" placeholder="0">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail4">Цена</label>
+                    <input type="text" class="form-control" name="prod_price" id="exampleInputEmail4" aria-describedby="emailHelp" placeholder="1200">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail5">Скидка</label>
+                    <input type="text" class="form-control" name="prod_discount" id="exampleInputEmail5" aria-describedby="emailHelp" placeholder="25">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">Категория</label>
+                    <select class="form-control" name="prod_category" id="exampleFormControlSelect1">
+                      {% for cat in cats %}
+                        <option value="{{ cat.id }}">{{ cat.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlFile1">Изображение товара</label>
+                    <input type="file" class="form-control-file" name="prod_image" id="exampleFormControlFile1">
+                  </div>
+                  <button type="submit" class="btn btn-warning">Добавить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

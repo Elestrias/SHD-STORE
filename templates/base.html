@@ -29,7 +29,10 @@
                     </form>
                 {% else %}
                     <form class="form-inline ml-auto">
-                        <a href="{{ url_for('basket') }}"><img src="{{ url_for('static', filename='img/basket.svg') }}" width="20" height="20" alt=""></a>
+                        {% if current_user.role > 2 %}
+                            <a href="{{ url_for('admin') }}"><img src="{{ url_for('static', filename='img/person.svg') }}" width="20" height="20" alt=""></a>
+                        {% endif %}
+                        <a href="{{ url_for('basket') }}" class="ml-md-2"><img src="{{ url_for('static', filename='img/basket.svg') }}" width="20" height="20" alt=""></a>
                         <a href="{{ url_for('lk_msg') }}" class="ml-md-2"><img src="{{ url_for('static', filename='img/bell.svg') }}" width="20" height="20" alt=""></a>
                         <span class="badge badge-light">{{ current_user.unread }}</span>
                         <a href="{{ url_for('lk_orders') }}" class="btn btn-link mr-md-1">{{ current_user.email }}</a>

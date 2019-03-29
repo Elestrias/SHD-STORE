@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+    StoreAdmin - Главная
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <div class="container-fluid" id="content">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <span class="list-group-item"><b>Админ панель</b></span>
+                    <a href="{{ url_for('admin') }}" class="list-group-item list-group-item-action active">
+                        Главная
+                    </a>
+                    <a href="{{ url_for('admin_products') }}" class="list-group-item list-group-item-action">Товары</a>
+                    <a href="{{ url_for('admin_categories') }}" class="list-group-item list-group-item-action">Категории</a>
+                    <a href="{{ url_for('admin_users') }}" class="list-group-item list-group-item-action">Пользователи</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h2>Статистика магазина</h2>
+                <p>
+                    Количество заказов:
+                    {{ count_orders }}
+                </p>
+                <p>
+                    Количество товаров:
+                    {{ count_products }}
+                </p>
+                <p>
+                    Количество пользователей:
+                    {{ count_users }}
+                </p>
+                <p>
+                    Количество менеджеров:
+                    {{ count_managers }}
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Store
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <div class="container" id="content">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <h3>Изменение товара</h3>
+                <form action="{{ url_for('edit_product', id=product.id) }}" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Название товара</label>
+                    <input type="text" class="form-control" name="prod_name" id="exampleInputEmail1" value="{{ product.name }}" aria-describedby="emailHelp" placeholder="Кроссовки">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Описание товара</label>
+                    <textarea class="form-control" name="prod_description" id="exampleFormControlTextarea1" rows="3">
+                        {{ product.description }}
+                    </textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail2">Количество на складе</label>
+                    <input type="text" class="form-control" name="prod_count" value="{{ product.count }}" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="25">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail3">Стоимость доставки</label>
+                    <input type="text" class="form-control" name="prod_delivery" value="{{ product.delivery }}" id="exampleInputEmail3" aria-describedby="emailHelp" placeholder="0">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail4">Цена</label>
+                    <input type="text" class="form-control" name="prod_price" value="{{ product.price }}" id="exampleInputEmail4" aria-describedby="emailHelp" placeholder="1200">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail5">Скидка</label>
+                    <input type="text" class="form-control" name="prod_discount" value="{{ product.discount }}" id="exampleInputEmail5" aria-describedby="emailHelp" placeholder="25">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">Категория</label>
+                    <select class="form-control" name="prod_category" id="exampleFormControlSelect1">
+                      {% for cat in cats %}
+                        <option value="{{ cat.id }}" {% if cat == product.cat %} selected {% endif %}>{{ cat.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                  <label>Текущая картинка</label>
+                  <img src="{{ url_for('static', filename='upload_img/' + product.image_url) }}" width="180" height="240" alt="">
+                  <div class="form-group">
+                    <label for="exampleFormControlFile1">Изображение товара</label>
+                    <input type="file" class="form-control-file" name="prod_image" id="exampleFormControlFile1">
+                  </div>
+                  <button type="submit" class="btn btn-warning">Изменить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
